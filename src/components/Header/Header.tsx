@@ -24,7 +24,6 @@ const Logo = styled(Image)`
     & img {
       width: 43px;
     }
-    /* display: snone; */
   }
 `;
 
@@ -60,11 +59,11 @@ export const Header = () => {
           />
         </Link>
         <Logos>
-          <Image src="/images/nav1.svg" height={24} width={24} />
-          <Image src="/images/nav2.svg" height={24} width={43} />
-          <Image src="/images/nav3.svg" height={22} width={84} />
-          <Image src="/images/nav4.svg" height={24} width={43} />
-          <Image src="/images/nav5.svg" height={22} width={25} />
+          <Image src="/images/nav1.svg" height={24} width={24} layout="fixed" />
+          <Image src="/images/nav2.svg" height={24} width={43} layout="fixed" />
+          <Image src="/images/nav3.svg" height={22} width={84} layout="fixed" />
+          <Image src="/images/nav4.svg" height={24} width={43} layout="fixed" />
+          <Image src="/images/nav5.svg" height={22} width={25} layout="fixed" />
         </Logos>
         <Button title="cart (0)" />
       </Nav>

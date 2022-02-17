@@ -1,4 +1,4 @@
-const BREAKPOINTS = {
+export const BREAKPOINTS = {
   tabletMin: 550,
 };
 

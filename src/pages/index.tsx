@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import styled from 'styled-components';
 
 import { Head, Marquee, Header, Footer } from '@/components';
+import { BREAKPOINTS } from '@/theme';
 
 const Wrapper = styled.main`
   height: 100%;
@@ -45,6 +46,25 @@ const Supply = styled(TextStroke)`
   }
 `;
 
+const Grid = styled.section`
+  margin-top: 8rem;
+  margin-bottom: 6rem;
+  display: flex;
+  padding: 0 var(--spacing);
+  gap: var(--spacing);
+
+  @media ${({ theme }) => theme.queries.mobile} {
+    flex-direction: column;
+  }
+`;
+
+const Card = styled.div`
+  flex: 1;
+  aspect-ratio: 0.76;
+  background: linear-gradient(0deg, #1d1d1d 0%, rgba(21, 21, 21, 0) 100%);
+  border-bottom: 3px solid var(--color-primary);
+`;
+
 const Home: NextPage = () => {
   return (
     <>
@@ -54,8 +74,12 @@ const Home: NextPage = () => {
         <Title>
           BASEMENT <Supply>SUPPLY</Supply>
         </Title>
-
         <Marquee speed={5}>A man can’t have enough base­ment swag</Marquee>
+        <Grid>
+          <Card />
+          <Card />
+          <Card />
+        </Grid>
         <Footer />
       </Wrapper>
     </>
