@@ -1,15 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const GlobalStyles = createGlobalStyle`
-  @font-face {
-    font-family: 'basement-grotesque';
-    src: url('/fonts/basement-grotesqueRegular.woff2') format('woff2'),
-        url('/fonts/basement-grotesqueRegular') format('woff');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-  }
+import { QUERIES } from '@/theme';
 
+export const GlobalStyles = createGlobalStyle`
   @font-face {
       font-family: 'basement-grotesque';
       src: url('/fonts/basement-grotesqueBlack.woff2') format('woff2'),
@@ -24,6 +17,7 @@ export const GlobalStyles = createGlobalStyle`
     --color-secondary: hsl(0 0% 100%);
     --color-background: hsl(0 0% 100%);
     --color-text: hsl(0 0% 0%);
+    --spacing: 2rem;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -32,6 +26,12 @@ export const GlobalStyles = createGlobalStyle`
       --color-secondary: hsl(0 0% 0%);
       --color-background: hsl(0 0% 0%);
       --color-text: hsl(0 0% 100%);
+    }
+  }
+
+  @media ${QUERIES.mobile} {
+    :root {
+      --spacing: 1rem;
     }
   }
 
@@ -53,6 +53,23 @@ export const GlobalStyles = createGlobalStyle`
     background-color: var(--color-background);
     color: var(--color-text);
   }
+  body::-webkit-scrollbar {
+  width: 8px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: black;       
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+  border-radius: 00px;   /*    roundness of the scroll thumb */
+  border: 1px solid var(--color-background);  /* creates padding around scroll thumb */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  /* background-color: #222; */
+}
   img, picture, video, canvas, svg {
     display: block;
     max-width: 100%;

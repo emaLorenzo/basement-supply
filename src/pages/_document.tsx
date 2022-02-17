@@ -6,9 +6,16 @@ export default function Document() {
       <Head>
         <link
           rel="preload"
-          href="/fonts/basement-grotesqueRegular.woff"
+          href="/fonts/basement-grotesqueBlack.woff"
           as="font"
           type="font/woff"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/basement-grotesqueBlack.woff2"
+          as="font"
+          type="font/woff2"
           crossOrigin="anonymous"
         />
         <link href="/images/favicons/favicon.ico" rel="icon" />
