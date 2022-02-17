@@ -6,7 +6,7 @@ export default function Document() {
       <Head>
         <link
           rel="preload"
-          href="/fonts/basement-grotesqueRegularRegular.woff"
+          href="/fonts/basement-grotesqueRegular.woff"
           as="font"
           type="font/woff"
           crossOrigin="anonymous"
