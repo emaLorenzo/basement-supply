@@ -17,7 +17,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <h1>BASEMENT SUPPLY</h1>
+        <h1 style={{ fontSize: '8rem' }}>BASEMENT SUPPLY</h1>
 
         <p>
           A man can’t have enough base­ment swag  —  A man can’t have enough
