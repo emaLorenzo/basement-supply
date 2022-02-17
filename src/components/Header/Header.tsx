@@ -53,6 +53,7 @@ export const Header = () => {
                 ? '/images/basement.logotype.small.svg'
                 : '/images/basement.logotype.svg'
             }
+            alt="Basement Studio logo"
             layout="fixed"
             height={isMobile ? 40 : 48}
             width={isMobile ? 43 : 192}

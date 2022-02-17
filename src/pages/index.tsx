@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 import { Head, Marquee, Header, Footer } from '@/components';
 import { BREAKPOINTS } from '@/theme';
@@ -65,15 +66,21 @@ const Card = styled.div`
   border-bottom: 3px solid var(--color-primary);
 `;
 
+const MotionTitle = motion(Title);
+
 const Home: NextPage = () => {
   return (
     <>
       <Head />
       <Wrapper>
         <Header />
-        <Title>
+        <MotionTitle
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
           BASEMENT <Supply>SUPPLY</Supply>
-        </Title>
+        </MotionTitle>
         <Marquee speed={5}>A man can’t have enough base­ment swag</Marquee>
         <Grid>
           <Card />
