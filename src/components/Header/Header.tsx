@@ -89,7 +89,7 @@ export const Header = () => {
         <Logos>
           <div>
             <Image
-              src="/images/nav1.svg"
+              src="/images/nav1.png"
               height={24}
               width={24}
               layout="responsive"
