@@ -4,6 +4,7 @@ const Wrapper = styled.button`
   border-radius: 50px;
   background-color: var(--color-secondary);
   border: 1.5px solid var(--color-primary);
+  padding: 0.5em;
 `;
 
 const Text = styled.span`

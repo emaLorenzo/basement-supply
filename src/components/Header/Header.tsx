@@ -14,18 +14,10 @@ const Nav = styled.nav`
   height: 3rem;
   display: flex;
   justify-content: space-between;
-  align-items: stretch;
+  align-items: center;
 `;
 
-const Logo = styled(Image)`
-  @media ${({ theme }) => theme.queries.mobile} {
-    content: url('/images/basement.logotype.small.svg');
-
-    & img {
-      width: 43px;
-    }
-  }
-`;
+const Logo = styled(Image)``;
 
 const Logos = styled.div`
   display: flex;
@@ -55,8 +47,8 @@ export const Header = () => {
             }
             alt="Basement Studio logo"
             layout="fixed"
-            height={isMobile ? 40 : 48}
-            width={isMobile ? 30 : 192}
+            height={isMobile ? 40 : 30}
+            width={isMobile ? 43 : 192}
           />
         </Link>
         <Logos>
