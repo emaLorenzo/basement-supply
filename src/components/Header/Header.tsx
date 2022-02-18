@@ -8,7 +8,7 @@ import { useMediaQuery } from '@/hooks';
 import { QUERIES } from '@/theme';
 
 const Wrapper = styled.header`
-  padding: 2.3vw;
+  padding: var(--spacing);
   opacity: 1;
 `;
 
@@ -19,7 +19,12 @@ const Nav = styled(motion.nav)`
   align-items: center;
 `;
 
-const Logo = styled(Image)``;
+const Logo = styled.a`
+  &:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 4px;
+  }
+`;
 
 const Logos = styled.div`
   display: flex;
@@ -45,8 +50,8 @@ export const Header = () => {
         transition={{ duration: 1, delay: 0.3 }}
       >
         <Link href="https://basement.studio" passHref prefetch={false}>
-          <a>
-            <Logo
+          <Logo>
+            <Image
               src={
                 isMobile
                   ? '/images/basement.logotype.small.svg'
@@ -57,42 +62,37 @@ export const Header = () => {
               height={isMobile ? 40 : 30}
               width={isMobile ? 43 : 192}
             />
-          </a>
+          </Logo>
         </Link>
         <Logos>
           <Image
             src="/images/nav1.svg"
             height={24}
             width={24}
-            layout="fixed"
             alt="header decorative small logo 1"
           />
           <Image
             src="/images/nav2.svg"
             height={24}
             width={43}
-            layout="fixed"
             alt="header decorative small logo 1"
           />
           <Image
             src="/images/nav3.svg"
             height={22}
             width={84}
-            layout="fixed"
             alt="header decorative small logo 1"
           />
           <Image
             src="/images/nav4.svg"
             height={24}
             width={43}
-            layout="fixed"
             alt="header decorative small logo 1"
           />
           <Image
             src="/images/nav5.svg"
             height={22}
             width={25}
-            layout="fixed"
             alt="header decorative small logo 1"
           />
         </Logos>

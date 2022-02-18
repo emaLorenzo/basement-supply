@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 
 const Wrapper = styled.footer`
   overflow: hidden;
+  padding: var(--spacing);
+  padding-bottom: calc(var(--spacing) * 1.6);
 `;
 
 const Content = styled(motion.div)`
@@ -89,8 +91,8 @@ const TitleStroke = styled(Title)`
 export const Footer = () => (
   <Wrapper>
     <Content
-      initial={{ y: '100%' }}
-      whileInView={{ y: '0%' }}
+      initial={{ y: '100%', opacity: 0 }}
+      whileInView={{ y: '0%', opacity: 1 }}
       transition={{ duration: 0.7 }}
     >
       <Row>

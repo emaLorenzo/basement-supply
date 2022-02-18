@@ -35,7 +35,7 @@ export default function Document() {
         <meta content="#000000" name="msapplication-TileColor" />
       </Head>
 
-      <body style={{ backgroundColor: '#000' }}>
+      <body>
         <Main />
         <NextScript />
       </body>

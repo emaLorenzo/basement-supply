@@ -5,6 +5,16 @@ const Wrapper = styled.button`
   background-color: var(--color-secondary);
   border: 1.5px solid var(--color-primary);
   padding: 0.5em;
+
+  &:hover {
+    background-color: var(--hover);
+  }
+  &:focus,
+  &:active {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 4px;
+    background-color: var(--active);
+  }
 `;
 
 const Text = styled.span`

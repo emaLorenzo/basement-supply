@@ -2,8 +2,7 @@ import type { NextPage } from 'next';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-import { Head, Marquee, Header, Footer } from '@/components';
-import { BREAKPOINTS } from '@/theme';
+import { Head, Marquee, Header, Footer, Card } from '@/components';
 
 const Wrapper = styled.main`
   height: 100%;
@@ -20,7 +19,7 @@ const Title = styled(motion.h1)`
 `;
 
 const TextStroke = styled.span`
-  -webkit-text-stroke: 2px white;
+  -webkit-text-stroke: 2px var(--color-text);
   -webkit-text-fill-color: transparent;
 `;
 
@@ -31,7 +30,7 @@ const Supply = styled(TextStroke)`
     line-height: 2.5em;
     vertical-align: middle;
     border-radius: 50%;
-    border: 1px solid white;
+    border: 1.5px solid currentColor;
     width: 5.5em;
     height: 2.5em;
     display: inline-block;
@@ -50,21 +49,33 @@ const Supply = styled(TextStroke)`
 const Grid = styled.section`
   margin-top: 8rem;
   margin-bottom: 6rem;
-  display: flex;
   padding: 0 var(--spacing);
-  gap: var(--spacing);
+
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(calc(550px / 2 - var(--spacing) * 1.5), 1fr)
+  );
+  grid-gap: var(--spacing);
+  /* display: flex;
+  flex-wrap: wrap; */
+  /* gap: var(--spacing); */
 
   @media ${({ theme }) => theme.queries.mobile} {
-    flex-direction: column;
+    grid-: column;
   }
 `;
 
-const Card = styled.div`
-  flex: 1;
-  aspect-ratio: 0.76;
-  background: linear-gradient(0deg, #1d1d1d 0%, rgba(21, 21, 21, 0) 100%);
-  border-bottom: 3px solid var(--color-primary);
-`;
+const items = [
+  {
+    id: 1,
+    title: 'Black t-shirt',
+    image: '/images/remera.webp',
+    price: 7.95,
+  },
+  { id: 2, title: 'Black hoodie', image: '/images/buzo.webp', price: 13 },
+  { id: 3, title: 'Black cap', image: '/images/gorra.webp', price: 23 },
+];
 
 const Home: NextPage = () => {
   return (
@@ -81,9 +92,9 @@ const Home: NextPage = () => {
         </Title>
         <Marquee speed={5}>A man can’t have enough base­ment swag</Marquee>
         <Grid>
-          <Card />
-          <Card />
-          <Card />
+          {items.map(({ id, ...item }) => (
+            <Card key={id} item={item} />
+          ))}
         </Grid>
         <Footer />
       </Wrapper>
