@@ -5,8 +5,7 @@ import { QUERIES } from '@/theme';
 export const GlobalStyles = createGlobalStyle`
   @font-face {
       font-family: 'basement-grotesque';
-      src: url('/fonts/basement-grotesqueBlack.woff2') format('woff2'),
-          url('/fonts/basement-grotesqueBlack') format('woff');
+      src: url('/fonts/basement-grotesqueBlack.woff2') format('woff2');
       font-weight: 700;
       font-style: normal;
       font-display: swap;

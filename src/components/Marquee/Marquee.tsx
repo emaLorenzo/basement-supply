@@ -1,11 +1,12 @@
 import { CSSProperties } from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 export interface CSSText extends CSSProperties {
   '--speed': string;
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   font-size: 2.5vw;
   font-weight: 700;
   overflow: hidden;
@@ -16,7 +17,7 @@ const Wrapper = styled.div`
   --marquee-width: 65vw;
 `;
 
-const Text = styled.span`
+const Text = styled(motion.span)`
   display: inline-block;
   white-space: nowrap;
   width: var(--marquee-width);
@@ -60,7 +61,18 @@ export const Marquee = ({
   speed: number;
   children: string;
 }) => (
-  <Wrapper>
-    <Text style={{ '--speed': `${speed}s` } as CSSText}>{children}</Text>
+  <Wrapper
+    initial={{ width: '0%' }}
+    animate={{ width: '100%' }}
+    transition={{ duration: 1, delay: 1.5 }}
+  >
+    <Text
+      style={{ '--speed': `${speed}s` } as CSSText}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 3, delay: 2 }}
+    >
+      {children}
+    </Text>
   </Wrapper>
 );

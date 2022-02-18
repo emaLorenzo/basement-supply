@@ -6,13 +6,6 @@ export default function Document() {
       <Head>
         <link
           rel="preload"
-          href="/fonts/basement-grotesqueBlack.woff"
-          as="font"
-          type="font/woff"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
           href="/fonts/basement-grotesqueBlack.woff2"
           as="font"
           type="font/woff2"
@@ -42,7 +35,7 @@ export default function Document() {
         <meta content="#000000" name="msapplication-TileColor" />
       </Head>
 
-      <body>
+      <body style={{ backgroundColor: '#000' }}>
         <Main />
         <NextScript />
       </body>

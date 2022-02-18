@@ -9,7 +9,7 @@ const Wrapper = styled.main`
   height: 100%;
 `;
 
-const Title = styled.h1`
+const Title = styled(motion.h1)`
   font-size: 14.55vw;
   font-weight: 700;
   line-height: 0.85;
@@ -66,21 +66,19 @@ const Card = styled.div`
   border-bottom: 3px solid var(--color-primary);
 `;
 
-const MotionTitle = motion(Title);
-
 const Home: NextPage = () => {
   return (
     <>
       <Head />
       <Wrapper>
         <Header />
-        <MotionTitle
+        <Title
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
           BASEMENT <Supply>SUPPLY</Supply>
-        </MotionTitle>
+        </Title>
         <Marquee speed={5}>A man can’t have enough base­ment swag</Marquee>
         <Grid>
           <Card />

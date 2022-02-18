@@ -1,6 +1,11 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 const Wrapper = styled.footer`
+  overflow: hidden;
+`;
+
+const Content = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -83,16 +88,22 @@ const TitleStroke = styled(Title)`
 
 export const Footer = () => (
   <Wrapper>
-    <Row>
-      <Title>wear</Title>
-      <DiskWrapper>
-        <Disk />
-        <Disk />
-        <Disk>
-          <Stick />
-        </Disk>
-      </DiskWrapper>
-    </Row>
-    <TitleStroke>everyday</TitleStroke>
+    <Content
+      initial={{ y: '100%' }}
+      whileInView={{ y: '0%' }}
+      transition={{ duration: 0.7 }}
+    >
+      <Row>
+        <Title>wear</Title>
+        <DiskWrapper>
+          <Disk />
+          <Disk />
+          <Disk>
+            <Stick />
+          </Disk>
+        </DiskWrapper>
+      </Row>
+      <TitleStroke>everyday</TitleStroke>
+    </Content>
   </Wrapper>
 );
