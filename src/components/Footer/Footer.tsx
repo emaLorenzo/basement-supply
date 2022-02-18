@@ -75,14 +75,15 @@ const Stick = styled.div`
   }
 `;
 
-const Title = styled.span`
+const Title = styled(motion.span)`
+  display: inline-block;
   font-weight: 700;
   text-align: right;
   transform: translateX(-5px);
   text-transform: uppercase;
 `;
 
-const TitleStroke = styled(Title)`
+const TitleStroke = styled(motion(Title))`
   -webkit-text-stroke: 3px white;
   -webkit-text-fill-color: transparent;
   position: relative;
@@ -90,13 +91,17 @@ const TitleStroke = styled(Title)`
 
 export const Footer = () => (
   <Wrapper>
-    <Content
-      initial={{ y: '100%', opacity: 0 }}
-      whileInView={{ y: '0%', opacity: 1 }}
-      transition={{ duration: 0.7 }}
-    >
+    <Content>
       <Row>
-        <Title>wear</Title>
+        <div style={{ overflow: 'hidden' }}>
+          <Title
+            initial={{ y: '100%', opacity: 0 }}
+            whileInView={{ y: '0%', opacity: 1 }}
+            transition={{ duration: 0.7 }}
+          >
+            wear
+          </Title>
+        </div>
         <DiskWrapper>
           <Disk />
           <Disk />
@@ -105,7 +110,13 @@ export const Footer = () => (
           </Disk>
         </DiskWrapper>
       </Row>
-      <TitleStroke>everyday</TitleStroke>
+      <TitleStroke
+        initial={{ opacity: 0.3 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5, repeat: 1, delay: 0.7 }}
+      >
+        everyday
+      </TitleStroke>
     </Content>
   </Wrapper>
 );
