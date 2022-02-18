@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 
+import { useMediaQuery } from '@/hooks';
+import { QUERIES } from '@/theme';
+
 const Wrapper = styled.button`
   overflow: hidden;
   background-color: transparent;
@@ -72,22 +75,26 @@ const AddToCart = styled.p`
 
 type Item = { title: string; image: string; price: number };
 
-export const Card = ({ item }: { item: Item }) => (
-  <Wrapper>
-    <article>
-      <ImageWrapper>
-        <Img
-          src={item.image}
-          layout="fill"
-          objectFit="contain"
-          alt={`Product image for ${item.title}`}
-        />
-        <AddToCart>Add to cart</AddToCart>
-      </ImageWrapper>
-      <Info>
-        <Text>{item.title}</Text>
-        <Text>{item.price}</Text>
-      </Info>
-    </article>
-  </Wrapper>
-);
+export const Card = ({ item }: { item: Item }) => {
+  const isMobile = useMediaQuery(QUERIES.mobile);
+  return (
+    <Wrapper>
+      <article>
+        <ImageWrapper>
+          <Img
+            src={item.image}
+            layout="fill"
+            sizes={isMobile ? '100vw' : '33vw'}
+            objectFit="contain"
+            alt={`Product image for ${item.title}`}
+          />
+          <AddToCart>Add to cart</AddToCart>
+        </ImageWrapper>
+        <Info>
+          <Text>{item.title}</Text>
+          <Text>{item.price}</Text>
+        </Info>
+      </article>
+    </Wrapper>
+  );
+};
