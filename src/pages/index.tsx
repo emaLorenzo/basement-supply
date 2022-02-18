@@ -57,9 +57,6 @@ const Grid = styled.section`
     minmax(calc(550px / 2 - var(--spacing) * 1.5), 1fr)
   );
   grid-gap: var(--spacing);
-  /* display: flex;
-  flex-wrap: wrap; */
-  /* gap: var(--spacing); */
 
   @media ${({ theme }) => theme.queries.mobile} {
     grid-: column;

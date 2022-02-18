@@ -75,25 +75,25 @@ export const Header = () => {
             src="/images/nav2.svg"
             height={24}
             width={43}
-            alt="header decorative small logo 1"
+            alt="header decorative small logo 2"
           />
           <Image
             src="/images/nav3.svg"
             height={22}
             width={84}
-            alt="header decorative small logo 1"
+            alt="header decorative small logo 3"
           />
           <Image
             src="/images/nav4.svg"
             height={24}
             width={43}
-            alt="header decorative small logo 1"
+            alt="header decorative small logo 4"
           />
           <Image
             src="/images/nav5.svg"
             height={22}
             width={25}
-            alt="header decorative small logo 1"
+            alt="header decorative small logo 5"
           />
         </Logos>
         <Button title="cart (0)" />
