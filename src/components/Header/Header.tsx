@@ -8,9 +8,8 @@ import { Button } from '@/components';
 import { useMediaQuery } from '@/hooks';
 import { QUERIES } from '@/theme';
 
-const Wrapper = styled.header`
+const Wrapper = styled(motion.header)`
   padding: var(--spacing);
-  opacity: 1;
 `;
 
 const Nav = styled(motion.nav)`
@@ -65,12 +64,12 @@ const Logos = styled.div`
 export const Header = () => {
   const isMobile = useMediaQuery(QUERIES.mobile);
   return (
-    <Wrapper>
-      <Nav
-        initial={{ y: '-160%', opacity: 0.3 }}
-        animate={{ y: '0%', opacity: 1 }}
-        transition={{ duration: 1, delay: 0.3 }}
-      >
+    <Wrapper
+    // initial={{ y: '-100%', opacity: 0 }}
+    // animate={{ y: '0%', opacity: 1 }}
+    // transition={{ duration: 1, delay: 0.7 }}
+    >
+      <Nav>
         <Link href="https://basement.studio" passHref prefetch={false}>
           <Logo>
             <Image

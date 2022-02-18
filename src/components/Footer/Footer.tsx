@@ -111,8 +111,8 @@ export const Footer = () => (
         </DiskWrapper>
       </Row>
       <TitleStroke
-        initial={{ opacity: 0.3 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 1 }}
+        whileInView={{ opacity: [1, 0.6, 1] }}
         transition={{ duration: 0.5, repeat: 1, delay: 0.7 }}
       >
         everyday
