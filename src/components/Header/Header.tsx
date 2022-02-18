@@ -60,11 +60,41 @@ export const Header = () => {
           />
         </Link>
         <Logos>
-          <Image src="/images/nav1.svg" height={24} width={24} layout="fixed" />
-          <Image src="/images/nav2.svg" height={24} width={43} layout="fixed" />
-          <Image src="/images/nav3.svg" height={22} width={84} layout="fixed" />
-          <Image src="/images/nav4.svg" height={24} width={43} layout="fixed" />
-          <Image src="/images/nav5.svg" height={22} width={25} layout="fixed" />
+          <Image
+            src="/images/nav1.svg"
+            height={24}
+            width={24}
+            layout="fixed"
+            alt="header decorative small logo 1"
+          />
+          <Image
+            src="/images/nav2.svg"
+            height={24}
+            width={43}
+            layout="fixed"
+            alt="header decorative small logo 1"
+          />
+          <Image
+            src="/images/nav3.svg"
+            height={22}
+            width={84}
+            layout="fixed"
+            alt="header decorative small logo 1"
+          />
+          <Image
+            src="/images/nav4.svg"
+            height={24}
+            width={43}
+            layout="fixed"
+            alt="header decorative small logo 1"
+          />
+          <Image
+            src="/images/nav5.svg"
+            height={22}
+            width={25}
+            layout="fixed"
+            alt="header decorative small logo 1"
+          />
         </Logos>
         <Button title="cart (0)" />
       </Nav>
