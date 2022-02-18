@@ -98,7 +98,7 @@ export const Header = () => {
           </div>
           <div>
             <Image
-              src="/images/nav2.svg"
+              src="/images/nav2.png"
               height={24}
               width={43}
               layout="responsive"
@@ -107,7 +107,7 @@ export const Header = () => {
           </div>
           <div>
             <Image
-              src="/images/nav3.svg"
+              src="/images/nav3.png"
               height={22}
               width={84}
               layout="responsive"
@@ -116,7 +116,7 @@ export const Header = () => {
           </div>
           <div>
             <Image
-              src="/images/nav4.svg"
+              src="/images/nav4.png"
               height={24}
               width={43}
               layout="responsive"
@@ -125,7 +125,7 @@ export const Header = () => {
           </div>
           <div>
             <Image
-              src="/images/nav5.svg"
+              src="/images/nav5.png"
               height={22}
               width={25}
               layout="responsive"
