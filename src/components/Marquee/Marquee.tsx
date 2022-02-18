@@ -62,8 +62,8 @@ export const Marquee = ({
   children: string;
 }) => (
   <Wrapper
-    initial={{ width: '0%' }}
-    animate={{ width: '100%' }}
+    initial={{ x: '-100%' }}
+    animate={{ x: '0%' }}
     transition={{ duration: 1, delay: 1.5 }}
   >
     <Text
