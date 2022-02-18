@@ -31,10 +31,7 @@ const Logos = styled.div`
   display: flex;
   flex-shrink: 9999999;
   margin: 0 2rem;
-
-  & > * {
-    margin: 0 0.4vw !important; // overrides next/image default margin
-  }
+  gap: 0.4vw;
 
   @media ${({ theme }) => theme.queries.mobile} {
     display: none;
