@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-import { Head, Marquee, Header, Footer, Card } from '@/components';
+import { Head, Marquee, Header, Footer, Card, CartDrawer } from '@/components';
 
 const Wrapper = styled.main`
   height: 100%;
@@ -95,6 +95,7 @@ const Home: NextPage = () => {
         </Grid>
         <Footer />
       </Wrapper>
+      <CartDrawer />
     </>
   );
 };

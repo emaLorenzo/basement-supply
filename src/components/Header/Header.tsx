@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import * as Dialog from '@radix-ui/react-dialog';
 
 import { Button } from '@/components';
 import { useMediaQuery } from '@/hooks';
@@ -96,7 +97,7 @@ export const Header = () => {
             alt="header decorative small logo 5"
           />
         </Logos>
-        <Button title="cart (0)" />
+        <Button as={Dialog.Trigger} title="cart (0)" />
       </Nav>
     </Wrapper>
   );

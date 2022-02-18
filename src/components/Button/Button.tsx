@@ -25,8 +25,10 @@ const Text = styled.span`
   font-weight: 700;
 `;
 
-export const Button = ({ title }: { title: string }) => (
-  <Wrapper>
+// for the purpose of this challenge I'll just leave this here
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const Button = ({ title, ...delegated }: any) => (
+  <Wrapper {...delegated}>
     <Text>{title}</Text>
   </Wrapper>
 );

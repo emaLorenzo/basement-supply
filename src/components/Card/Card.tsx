@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const Wrapper = styled.button`
@@ -23,9 +22,11 @@ const ImageWrapper = styled.div`
   border-bottom: 3px solid var(--color-primary);
   position: relative;
   padding: var(--spacing);
+  display: grid;
+  place-items: center;
 
   ${Wrapper}:hover & {
-    /* border-bottom-width: 5px; */
+    background: linear-gradient(0deg, #2d2d2d 0%, rgba(21, 21, 21, 0) 100%);
   }
 `;
 
@@ -48,6 +49,27 @@ const Img = styled(Image)`
   }
 `;
 
+const AddToCart = styled.p`
+  opacity: 0;
+  position: absolute;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  font-size: 1.8rem;
+  -webkit-text-stroke-color: var(--color-primary);
+  -webkit-text-stroke-width: 1px;
+  background-image: url('/images/glove.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 4.3em;
+  line-height: 4.3em;
+  transition: opacity 0.2s ease-in-out;
+
+  ${Wrapper}:hover, ${Wrapper}:focus & {
+    opacity: 1;
+  }
+`;
+
 type Item = { title: string; image: string; price: number };
 
 export const Card = ({ item }: { item: Item }) => (
@@ -60,6 +82,7 @@ export const Card = ({ item }: { item: Item }) => (
           objectFit="contain"
           alt={`Product image for ${item.title}`}
         />
+        <AddToCart>Add to cart</AddToCart>
       </ImageWrapper>
       <Info>
         <Text>{item.title}</Text>
