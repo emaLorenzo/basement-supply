@@ -47,17 +47,23 @@ export const Header = () => {
     <Wrapper>
       <Nav>
         <Link href="https://basement.studio" passHref prefetch={false}>
-          <Logo
-            src={
-              isMobile
-                ? '/images/basement.logotype.small.svg'
-                : '/images/basement.logotype.svg'
-            }
-            alt="Basement Studio logo"
-            layout="fixed"
-            height={isMobile ? 40 : 48}
-            width={isMobile ? 43 : 192}
-          />
+          {isMobile ? (
+            <Logo
+              src="/images/basement.logotype.small.svg"
+              alt="Basement Studio logo"
+              layout="fixed"
+              height={40}
+              width={43}
+            />
+          ) : (
+            <Logo
+              src="/images/basement.logotype.svg"
+              alt="Basement Studio logo"
+              layout="fixed"
+              height={48}
+              width={192}
+            />
+          )}
         </Link>
         <Logos>
           <Image
