@@ -29,12 +29,36 @@ const Logo = styled.a`
 
 const Logos = styled.div`
   display: flex;
+  align-items: center;
   flex-shrink: 9999999;
   margin: 0 2rem;
   gap: 0.4vw;
 
   @media ${({ theme }) => theme.queries.mobile} {
     display: none;
+  }
+
+  & > div {
+    &:nth-child(1) {
+      height: 24px;
+      width: 24px;
+    }
+    &:nth-child(2) {
+      height: 24px;
+      width: 43px;
+    }
+    &:nth-child(3) {
+      height: 22px;
+      width: 84px;
+    }
+    &:nth-child(4) {
+      height: 24px;
+      width: 43px;
+    }
+    &:nth-child(5) {
+      height: 22px;
+      width: 25px;
+    }
   }
 `;
 
@@ -63,36 +87,51 @@ export const Header = () => {
           </Logo>
         </Link>
         <Logos>
-          <Image
-            src="/images/nav1.svg"
-            height={24}
-            width={24}
-            alt="header decorative small logo 1"
-          />
-          <Image
-            src="/images/nav2.svg"
-            height={24}
-            width={43}
-            alt="header decorative small logo 2"
-          />
-          <Image
-            src="/images/nav3.svg"
-            height={22}
-            width={84}
-            alt="header decorative small logo 3"
-          />
-          <Image
-            src="/images/nav4.svg"
-            height={24}
-            width={43}
-            alt="header decorative small logo 4"
-          />
-          <Image
-            src="/images/nav5.svg"
-            height={22}
-            width={25}
-            alt="header decorative small logo 5"
-          />
+          <div>
+            <Image
+              src="/images/nav1.svg"
+              height={24}
+              width={24}
+              layout="responsive"
+              alt="header decorative small logo 1"
+            />
+          </div>
+          <div>
+            <Image
+              src="/images/nav2.svg"
+              height={24}
+              width={43}
+              layout="responsive"
+              alt="header decorative small logo 2"
+            />
+          </div>
+          <div>
+            <Image
+              src="/images/nav3.svg"
+              height={22}
+              width={84}
+              layout="responsive"
+              alt="header decorative small logo 3"
+            />
+          </div>
+          <div>
+            <Image
+              src="/images/nav4.svg"
+              height={24}
+              width={43}
+              layout="responsive"
+              alt="header decorative small logo 4"
+            />
+          </div>
+          <div>
+            <Image
+              src="/images/nav5.svg"
+              height={22}
+              width={25}
+              layout="responsive"
+              alt="header decorative small logo 5"
+            />
+          </div>
         </Logos>
         <Button as={Dialog.Trigger} title="cart (0)" />
       </Nav>
