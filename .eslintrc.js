@@ -41,7 +41,7 @@ module.exports = {
 
     // use TypeScript instead.
     'react/prop-types': 'off',
-    'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx'] }],
+    'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx', 'jsx'] }],
     'import/extensions': 'off',
     'react/jsx-props-no-spreading': ['error', { custom: 'ignore' }],
     'import/prefer-default-export': 'off',
