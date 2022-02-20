@@ -8,3 +8,4 @@ export { Card } from './Card';
 export { CartDrawer } from './CartDrawer';
 export { Overlay } from './Overlay';
 export { Drawer } from './Drawer';
+export { Title } from './Title';

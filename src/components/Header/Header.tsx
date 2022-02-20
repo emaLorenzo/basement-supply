@@ -33,7 +33,7 @@ const Logos = styled.div`
   margin: 0 2rem;
   gap: 0.4vw;
 
-  @media ${({ theme }) => theme.queries.mobile} {
+  @media ${({ theme }) => theme.queries.tablet} {
     display: none;
   }
 

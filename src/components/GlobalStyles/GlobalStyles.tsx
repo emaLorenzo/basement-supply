@@ -54,8 +54,8 @@ export const GlobalStyles = createGlobalStyle`
     background-color: var(--color-background);
     color: var(--color-text);
   }
-  body::-webkit-scrollbar {
-  width: 8px;               /* width of the entire scrollbar */
+body::-webkit-scrollbar {
+  width: 8px;
 }
 
 body::-webkit-scrollbar-track {
@@ -68,9 +68,6 @@ body::-webkit-scrollbar-thumb {
   border: 1px solid var(--color-background);  /* creates padding around scroll thumb */
 }
 
-body::-webkit-scrollbar-thumb:hover {
-  /* background-color: #222; */
-}
   img, picture, video, canvas, svg {
     display: block;
     max-width: 100%;

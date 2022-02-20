@@ -4,11 +4,20 @@ import { motion } from 'framer-motion';
 
 export const Drawer = styled(motion(Dialog.Content))`
   background-color: var(--color-secondary);
-  border: 1px solid var(--color-primary);
+  border-left: 1px solid var(--color-primary);
+  border-bottom: 1px solid var(--color-primary);
+  display: flex;
+  flex-direction: column;
   position: absolute;
   top: 0;
   right: 0;
+  max-width: 100%;
+  max-height: 100%;
   z-index: 2;
+
+  @media ${({ theme }) => theme.queries.mobile} {
+    bottom: 0;
+  }
 
   @keyframes slideIn {
     from {

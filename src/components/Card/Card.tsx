@@ -86,6 +86,7 @@ export const Card = ({ item }: { item: Item }) => {
             layout="fill"
             sizes={isMobile ? '100vw' : '33vw'}
             objectFit="contain"
+            priority
             alt={`Product image for ${item.title}`}
           />
           <AddToCart>Add to cart</AddToCart>
