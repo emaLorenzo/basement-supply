@@ -12,23 +12,27 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   :root {
-    --color-primary: hsl(0 0% 100%);
-    --color-secondary: hsl(0 0% 0%);
-    --color-background: hsl(0 0% 80%);
-    --color-text: hsl(0 0% 100%);
     --spacing: 2rem;
     --active: hsl(0 0% 40%);
     --hover: hsl(0 0% 20%);
+
+    --color-primary: hsl(0 0% 100%);
+    --color-secondary: hsl(0 0% 0%);
+    --color-background: hsl(0 0% 0%);
+    --color-text: hsl(0 0% 100%);
   }
 
-  @media (prefers-color-scheme: dark) {
+  /* @media (prefers-color-scheme: light) {
     :root {
       --color-primary: hsl(0 0% 100%);
       --color-secondary: hsl(0 0% 0%);
-      --color-background: hsl(0 0% 0%);
+      --color-background: hsl(0 0% 80%);
       --color-text: hsl(0 0% 100%);
+      --spacing: 2rem;
+      --active: hsl(0 0% 40%);
+      --hover: hsl(0 0% 20%);
     }
-  }
+  } */
 
   @media ${QUERIES.mobile} {
     :root {
