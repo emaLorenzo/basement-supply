@@ -103,7 +103,9 @@ export const CartDrawerItem = ({ cartItem }: Props) => {
           <Label>size:</Label>
           <InputSelect
             options={['S', 'M', 'L', 'XL']}
-            onChange={(value) => {}}
+            onChange={(value) => {
+              console.log(value);
+            }}
           />
           <Total>$12,50</Total>
         </RowBetween>

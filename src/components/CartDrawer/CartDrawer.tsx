@@ -1,6 +1,5 @@
 import * as Dialog from '@radix-ui/react-dialog';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 
 import { Drawer, Title, CartDrawerItem } from '@/components';
 import { useStore } from '@/store';
