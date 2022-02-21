@@ -86,11 +86,18 @@ type Props = {
 };
 
 export const Card = ({ item }: Props) => {
-  const addItem = useStore((state) => state.addItem);
+  const { addItem, cartItems } = useStore((state) => ({
+    addItem: state.addItem,
+    cartItems: state.cartItems,
+  }));
   const isMobile = useMediaQuery(QUERIES.mobile);
 
   const addCartItem = () => {
+    const lastIndex =
+      cartItems.length > 0 ? cartItems[cartItems.length - 1].id : 0;
+
     const cartItem: CartItem = {
+      id: lastIndex + 1,
       item,
       quantity: 1,
       size: 'L',
