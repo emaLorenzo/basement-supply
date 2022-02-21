@@ -133,7 +133,7 @@ export const CartDrawerItem = ({ cartItem }: Props) => {
             options={['S', 'M', 'L', 'XL']}
             onChange={(value) => handleChangeSize(value)}
           />
-          <Total>$12,50</Total>
+          <Total>{`$${item.price * quantity}`}</Total>
         </RowBetween>
       </Content>
     </Wrapper>

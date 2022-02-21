@@ -145,6 +145,12 @@ export const CartDrawer = () => {
   const handleCheckout = () => {
     console.log('Your cart items -> ', cartItems);
   };
+  const calculateTotal = () => {
+    return cartItems.reduce(
+      (acc, cartItem) => cartItem.quantity * cartItem.item.price + acc,
+      0
+    );
+  };
   return (
     <Drawer>
       <Content>
@@ -165,7 +171,7 @@ export const CartDrawer = () => {
         ))}
       </Items>
       <Footer>
-        <Total>TOTAL: $37,50</Total>
+        <Total>{`TOTAL: $${calculateTotal()}`}</Total>
         <CheckoutButton onClick={handleCheckout}>
           <Title stroke>Checkout</Title>
         </CheckoutButton>
