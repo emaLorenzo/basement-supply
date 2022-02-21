@@ -56,10 +56,12 @@ interface Props {
   onChange: (value: number) => void;
 }
 
-export const InputNumber = ({ value, onChange }: Props) => (
-  <Wrapper>
-    <Button onClick={() => console.log('-')}>-</Button>
-    <Input type="number" readOnly value={value} />
-    <Button onClick={() => console.log('+')}>+</Button>
-  </Wrapper>
-);
+export const InputNumber = ({ value, onChange }: Props) => {
+  return (
+    <Wrapper>
+      <Button onClick={() => onChange(value - 1)}>-</Button>
+      <Input type="number" readOnly value={value} />
+      <Button onClick={() => onChange(value + 1)}>+</Button>
+    </Wrapper>
+  );
+};

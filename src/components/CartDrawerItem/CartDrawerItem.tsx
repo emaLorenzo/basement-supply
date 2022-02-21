@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 
-import { CartItem } from '@/store';
+import { CartItem, useStore } from '@/store';
 import { InputNumber, InputSelect } from '@/components';
 
 const Wrapper = styled.article`
@@ -81,7 +81,36 @@ type Props = {
 };
 
 export const CartDrawerItem = ({ cartItem }: Props) => {
-  const { item, quantity, size } = cartItem;
+  const { id, item, quantity, size } = cartItem;
+  const { updateItem, deleteItem } = useStore((state) => ({
+    updateItem: state.updateItem,
+    deleteItem: state.deleteItem,
+  }));
+
+  const handleUpdate = (update: CartItem) => {
+    updateItem(update, id);
+  };
+
+  const handleChangeQuantity = (value: number) => {
+    if (value <= 0) {
+      deleteItem(id);
+    }
+    const updatedItem = {
+      ...cartItem,
+      quantity: value,
+    };
+
+    handleUpdate(updatedItem);
+  };
+
+  const handleChangeSize = (value: string) => {
+    const updatedItem = {
+      ...cartItem,
+      size: value,
+    };
+    handleUpdate(updatedItem);
+  };
+
   return (
     <Wrapper>
       <ImageWrapper>
@@ -94,18 +123,15 @@ export const CartDrawerItem = ({ cartItem }: Props) => {
           <Label>quantity:</Label>
           <InputNumber
             value={quantity}
-            onChange={(value) => {
-              console.log(value);
-            }}
+            onChange={(value) => handleChangeQuantity(value)}
           />
         </Row>
         <RowBetween>
           <Label>size:</Label>
           <InputSelect
+            selected={size}
             options={['S', 'M', 'L', 'XL']}
-            onChange={(value) => {
-              console.log(value);
-            }}
+            onChange={(value) => handleChangeSize(value)}
           />
           <Total>$12,50</Total>
         </RowBetween>

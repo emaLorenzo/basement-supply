@@ -141,6 +141,10 @@ const CheckoutButton = styled.button`
 
 export const CartDrawer = () => {
   const cartItems = useStore((state) => state.cartItems);
+
+  const handleCheckout = () => {
+    console.log('Your cart items -> ', cartItems);
+  };
   return (
     <Drawer>
       <Content>
@@ -157,12 +161,12 @@ export const CartDrawer = () => {
       </Content>
       <Items>
         {cartItems.map((cartItem) => (
-          <CartDrawerItem key={cartItem.item.id} cartItem={cartItem} />
+          <CartDrawerItem key={cartItem.id} cartItem={cartItem} />
         ))}
       </Items>
       <Footer>
         <Total>TOTAL: $37,50</Total>
-        <CheckoutButton>
+        <CheckoutButton onClick={handleCheckout}>
           <Title stroke>Checkout</Title>
         </CheckoutButton>
       </Footer>

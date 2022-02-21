@@ -30,23 +30,18 @@ const Option = styled.button<{ selected: boolean }>`
 `;
 
 interface Props {
+  selected: string;
   options: string[];
   onChange: (value: string) => void;
 }
 
-export const InputSelect = ({ options, onChange }: Props) => {
-  const [selected, setSelected] = React.useState(options[0]);
-
-  const handleChange = (value: string) => {
-    setSelected(value);
-    onChange(value);
-  };
+export const InputSelect = ({ selected, options, onChange }: Props) => {
   return (
     <Wrapper>
       {options.map((option) => (
         <Option
           key={option}
-          onClick={() => handleChange(option)}
+          onClick={() => onChange(option)}
           selected={selected === option}
         >
           {option}
