@@ -17,6 +17,7 @@ export const Drawer = styled(motion(Dialog.Content))`
 
   @media ${({ theme }) => theme.queries.mobile} {
     bottom: 0;
+    border: none;
   }
 
   @keyframes slideIn {

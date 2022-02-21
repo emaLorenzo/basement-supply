@@ -2,7 +2,8 @@ import * as Dialog from '@radix-ui/react-dialog';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-import { Drawer, Title } from '@/components';
+import { Drawer, Title, CartDrawerItem } from '@/components';
+import { useStore } from '@/store';
 
 const Content = styled.div`
   padding: var(--spacing);
@@ -48,7 +49,8 @@ const CloseButton = styled(Dialog.Close)`
 
 const TitleWrapper = styled.div`
   font-size: max(5.6vw, 3rem);
-  margin-bottom: 1rem;
+  max-width: 100%;
+  margin-bottom: 0.5rem;
   display: flex;
   gap: 0.4em;
   flex-wrap: wrap;
@@ -57,11 +59,11 @@ const TitleWrapper = styled.div`
     font-size: 18vw;
 
     & h2:first-child {
-      font-size: 30vw;
+      font-size: 27.5vw;
       transform: translateX(5px);
     }
     & h2:last-child {
-      font-size: 29.2vw;
+      font-size: 27.2vw;
     }
   }
 `;
@@ -70,6 +72,7 @@ const Items = styled.section`
   flex: 1;
   min-height: 8rem;
   overflow: auto;
+  padding: var(--spacing);
 
   &::-webkit-scrollbar {
     width: 8px;
@@ -86,12 +89,6 @@ const Items = styled.section`
   }
 `;
 
-const Item = styled.article`
-  width: 100%;
-  height: 200px;
-  border: 1px dashed white;
-`;
-
 const Footer = styled.footer`
   display: flex;
   align-items: stretch;
@@ -102,6 +99,7 @@ const Footer = styled.footer`
 
   @media ${({ theme }) => theme.queries.mobile} {
     flex-direction: column;
+    border-top: none;
   }
 `;
 
@@ -112,6 +110,8 @@ const Total = styled.p`
 
   @media ${({ theme }) => theme.queries.mobile} {
     font-size: max(4.4vw, 1.2rem);
+    border-bottom: 1px solid var(--color-primary);
+    border-right: none;
   }
 `;
 
@@ -141,6 +141,7 @@ const CheckoutButton = styled.button`
 `;
 
 export const CartDrawer = () => {
+  const cartItems = useStore((state) => state.cartItems);
   return (
     <Drawer>
       <Content>
@@ -156,12 +157,9 @@ export const CartDrawer = () => {
         </TitleWrapper>
       </Content>
       <Items>
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
+        {cartItems.map((cartItem) => (
+          <CartDrawerItem key={cartItem.item.id} cartItem={cartItem} />
+        ))}
       </Items>
       <Footer>
         <Total>TOTAL: $37,50</Total>

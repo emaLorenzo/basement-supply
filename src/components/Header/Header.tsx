@@ -7,6 +7,7 @@ import * as Dialog from '@radix-ui/react-dialog';
 import { Button } from '@/components';
 import { useMediaQuery } from '@/hooks';
 import { QUERIES } from '@/theme';
+import { useStore } from '@/store';
 
 const Wrapper = styled(motion.header)`
   padding: var(--spacing);
@@ -62,6 +63,7 @@ const Logos = styled.div`
 `;
 
 export const Header = () => {
+  const cartItems = useStore((state) => state.cartItems);
   const isMobile = useMediaQuery(QUERIES.mobile);
   return (
     <Wrapper
@@ -132,7 +134,7 @@ export const Header = () => {
             />
           </div>
         </Logos>
-        <Button as={Dialog.Trigger} title="cart (0)" />
+        <Button as={Dialog.Trigger} title={`cart (${cartItems.length})`} />
       </Nav>
     </Wrapper>
   );

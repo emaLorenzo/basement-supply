@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 import { Head, Marquee, Header, Footer, Card, CartDrawer } from '@/components';
+import { itemsMock, Item } from '@/data/ecommerce';
 
 const Wrapper = styled.main`
   height: 100%;
@@ -61,18 +62,11 @@ const Grid = styled.section`
   }
 `;
 
-const items = [
-  {
-    id: 1,
-    title: 'Black t-shirt',
-    image: '/images/remera.webp',
-    price: 7.95,
-  },
-  { id: 2, title: 'Black hoodie', image: '/images/buzo.webp', price: 13 },
-  { id: 3, title: 'Black cap', image: '/images/gorra.webp', price: 23 },
-];
+type Props = {
+  items: Item[];
+};
 
-const Home: NextPage = () => {
+const Home: NextPage<Props> = ({ items }) => {
   return (
     <>
       <Head />
@@ -99,8 +93,8 @@ const Home: NextPage = () => {
 
         <Marquee speed={5}>A man can’t have enough base­ment swag</Marquee>
         <Grid>
-          {items.map(({ id, ...item }) => (
-            <Card key={id} item={item} />
+          {items.map((item) => (
+            <Card key={item.id} item={item} />
           ))}
         </Grid>
         <Footer />
@@ -109,5 +103,14 @@ const Home: NextPage = () => {
     </>
   );
 };
+
+export async function getStaticProps() {
+  // using mock data
+  return {
+    props: {
+      items: itemsMock,
+    },
+  };
+}
 
 export default Home;

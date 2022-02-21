@@ -53,12 +53,10 @@ module.exports = {
     '@typescript-eslint/no-use-before-define': ['error'],
     '@typescript-eslint/ban-ts-comment': 'off',
     'react/function-component-definition': 'off',
-    'jsx-a11y/anchor-is-valid': [
-      'error',
+    'jsx-a11y/label-has-associated-control': [
+      2,
       {
-        components: ['Link'],
-        specialLink: ['hrefLeft', 'hrefRight'],
-        aspects: ['invalidHref', 'preferButton'],
+        assert: 'either', // either check for `htmlFor` or `nesting`
       },
     ],
     'import/order': [

@@ -3,6 +3,25 @@ import Image from 'next/image';
 
 import { useMediaQuery } from '@/hooks';
 import { QUERIES } from '@/theme';
+import { Item } from '@/data/ecommerce';
+import { CartItem, useStore } from '@/store';
+
+const AddToCart = styled.p`
+  opacity: 0;
+  position: absolute;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  font-size: 1.8rem;
+  -webkit-text-stroke-color: var(--color-primary);
+  -webkit-text-stroke-width: 1px;
+  background-image: url('/images/glove.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 4.3em;
+  line-height: 4.3em;
+  transition: opacity 0.2s ease-in-out;
+`;
 
 const Wrapper = styled.button`
   overflow: hidden;
@@ -16,6 +35,16 @@ const Wrapper = styled.button`
     outline: 2px solid var(--color-primary);
     outline-offset: 16px;
     transform: translateY(calc(-1 * var(--spacing)));
+
+    & ${AddToCart} {
+      opacity: 1;
+    }
+  }
+
+  &:hover {
+    & ${AddToCart} {
+      opacity: 1;
+    }
   }
 `;
 
@@ -52,33 +81,25 @@ const Img = styled(Image)`
   }
 `;
 
-const AddToCart = styled.p`
-  opacity: 0;
-  position: absolute;
-  text-transform: uppercase;
-  color: var(--color-secondary);
-  font-size: 1.8rem;
-  -webkit-text-stroke-color: var(--color-primary);
-  -webkit-text-stroke-width: 1px;
-  background-image: url('/images/glove.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  height: 4.3em;
-  line-height: 4.3em;
-  transition: opacity 0.2s ease-in-out;
+type Props = {
+  item: Item;
+};
 
-  ${Wrapper}:hover, ${Wrapper}:focus & {
-    opacity: 1;
-  }
-`;
-
-type Item = { title: string; image: string; price: number };
-
-export const Card = ({ item }: { item: Item }) => {
+export const Card = ({ item }: Props) => {
+  const addItem = useStore((state) => state.addItem);
   const isMobile = useMediaQuery(QUERIES.mobile);
+
+  const addCartItem = () => {
+    const cartItem: CartItem = {
+      item,
+      quantity: 1,
+      size: 'L',
+    };
+    addItem(cartItem);
+  };
+
   return (
-    <Wrapper>
+    <Wrapper onClick={addCartItem}>
       <article>
         <ImageWrapper>
           <Img
