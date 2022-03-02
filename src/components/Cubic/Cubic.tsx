@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import React from 'react';
 import { useGLTF } from '@react-three/drei';
-import { extend, useFrame } from '@react-three/fiber';
+import { extend, useFrame, useThree } from '@react-three/fiber';
 import { useViewportScroll } from 'framer-motion';
 /* @ts-ignore */
 import { MeshLine, MeshLineMaterial } from 'three.meshline';
@@ -18,6 +18,7 @@ export const Cubic = ({ ...props }) => {
     () => new THREE.EdgesGeometry(nodes.Cube.geometry, 10),
     [nodes]
   );
+  const { viewport } = useThree()
 
   useFrame(() => {
     group.current.rotation.x += 0.01;
@@ -29,7 +30,7 @@ export const Cubic = ({ ...props }) => {
   });
 
   return (
-    <group ref={group} {...props} dispose={null} scale={0.15}>
+    <group ref={group} {...props} dispose={null} scale={viewport.width / 1500}>
       {/* @ts-ignore  */}
       <mesh geometry={nodes.Cube.geometry} material={materials.Material}>
         {/* geometry={nodes.Cube.geometry} material={materials.Material} */}
