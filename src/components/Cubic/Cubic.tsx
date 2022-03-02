@@ -1,20 +1,47 @@
 /* eslint-disable react/jsx-props-no-spreading */
-
-import React, { useRef } from 'react';
+/* @ts-ignore */
+import * as THREE from 'three';
+import React from 'react';
 import { useGLTF } from '@react-three/drei';
+import { extend, useFrame } from '@react-three/fiber';
+import { MeshLine, MeshLineMaterial } from 'three.meshline';
+
+extend({ MeshLine, MeshLineMaterial });
 
 export const Cubic = ({ ...props }) => {
-  const group = useRef();
+  const group = React.useRef();
   const { nodes, materials } = useGLTF('cubic.glb');
+  const edges = React.useMemo(
+    /* @ts-ignore */
+    () => new THREE.EdgesGeometry(nodes.Cube.geometry, 10),
+    [nodes]
+  );
+
+  useFrame(() => {
+    group.current.rotation.x += 0.01;
+    // group.current.rotation.y += 0.01;
+    group.current.rotation.z += 0.01;
+  });
+
   return (
-    <group ref={group} {...props} dispose={null}>
-      <mesh
-        geometry={nodes.Cube.geometry}
-        material={materials.Material}
-        position={[1, 1, 1]}
-        rotation={[0, 1, 0]}
-        scale={0.1}
-      />
+    <group ref={group} {...props} dispose={null} scale={0.15}>
+      {/* @ts-ignore  */}
+      <mesh geometry={nodes.Cube.geometry} material={materials.Material}>
+        {/* geometry={nodes.Cube.geometry} material={materials.Material} */}
+        {/* <meshLine attach="geometry" points={nodes.Cube.geometry} />
+        <meshLineMaterial
+          attach="material"
+          // transparent
+          depthTest={false}
+          lineWidth={4}
+          color="white"
+          dashArray={0.05}
+          dashRatio={0.95}
+        /> */}
+      </mesh>
+      <lineSegments geometry={edges} renderOrder={100}>
+        <lineBasicMaterial color="white" linewidth={20} />
+      </lineSegments>
     </group>
   );
 };

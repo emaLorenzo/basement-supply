@@ -1,27 +1,14 @@
 import { Canvas } from '@react-three/fiber';
-// import dynamic from 'next/dynamic';
-import { Suspense, lazy } from 'react';
+import { Suspense } from 'react';
 
 import { Cubic } from '@/components';
 
-// const Cubic = dynamic(
-//   () => import('..').then((components) => components.Cubic),
-//   {
-//     suspense: true,
-//     ssr: true,
-//   }
-// );
-
 export const Scene = () => (
-  <Canvas>
+  <Canvas dpr={[1, 2]} camera={{ zoom: 50, position: [0, 0, 100] }}>
     <Suspense fallback={null}>
-      <spotLight
-        position={[10, 20, 10]}
-        penumbra={1}
-        intensity={0.2}
-        color="white"
-      />
-      <Cubic />
+      {/* <OrthographicCamera makeDefault /> */}
+      <Cubic position={[-1.3, -0.2, 1]} rotation={[0.7, 1, 0]} />
+      <Cubic position={[1.4, 0.1, 1]} rotation={[1, 2, 0]} />
     </Suspense>
   </Canvas>
 );

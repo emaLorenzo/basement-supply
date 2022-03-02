@@ -122,7 +122,6 @@ const Home: NextPage<Props> = ({ items }) => {
         <Footer />
       </Wrapper>
       <CartDrawer />
-
       <Scene />
     </>
   );
