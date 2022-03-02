@@ -12,3 +12,5 @@ export { Drawer } from './Drawer';
 export { Title } from './Title';
 export { InputNumber } from './InputNumber';
 export { InputSelect } from './InputSelect';
+export { Cubic } from './Cubic';
+export { Scene } from './Scene';

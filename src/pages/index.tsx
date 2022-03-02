@@ -1,12 +1,34 @@
 import type { NextPage } from 'next';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { Suspense, lazy } from 'react';
+import dynamic from 'next/dynamic';
 
-import { Head, Marquee, Header, Footer, Card, CartDrawer } from '@/components';
+import {
+  Head,
+  Marquee,
+  Header,
+  Footer,
+  Card,
+  CartDrawer,
+  Scene,
+} from '@/components';
 import { itemsMock, Item } from '@/data/ecommerce';
+
+// const Scene = dynamic(
+//   () => import('../components/Scene/Scene').then((comps) => comps.Scene),
+//   {
+//     ssr: false,
+//     // suspense: true,
+//   }
+// );
+
+// import Cubic from '@/components/Cubic';
 
 const Wrapper = styled.main`
   height: 100%;
+  position: absolute;
+  inset: 0;
 `;
 
 const Title = styled(motion.h1)`
@@ -100,6 +122,8 @@ const Home: NextPage<Props> = ({ items }) => {
         <Footer />
       </Wrapper>
       <CartDrawer />
+
+      <Scene />
     </>
   );
 };
