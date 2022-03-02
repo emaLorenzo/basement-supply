@@ -73,7 +73,7 @@ module.exports = {
       },
     ],
   },
-  plugins: ['import', '@typescript-eslint', 'react', 'prettier'],
+  plugins: ['import', '@typescript-eslint', 'prettier'],
   settings: {
     react: {
       version: 'detect',

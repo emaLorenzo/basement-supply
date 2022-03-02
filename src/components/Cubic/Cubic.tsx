@@ -20,9 +20,9 @@ export const Cubic = ({ ...props }) => {
 
   useFrame(() => {
     /* @ts-ignore */
-    group?.current.rotation.x += 0.01;
+    group.current.rotation.x += 0.01;
     /* @ts-ignore */
-    group?.current.rotation.z += 0.01;
+    group.current.rotation.z += 0.01;
   });
 
   return (
