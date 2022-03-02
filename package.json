@@ -7,6 +7,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^12.1.0",
     "@radix-ui/react-dialog": "^0.1.5",
     "@react-three/drei": "^8.10.6",
     "@react-three/fiber": "^7.0.26",
