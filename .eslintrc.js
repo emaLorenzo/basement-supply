@@ -53,6 +53,10 @@ module.exports = {
     '@typescript-eslint/no-use-before-define': ['error'],
     '@typescript-eslint/ban-ts-comment': 'off',
     'react/function-component-definition': 'off',
+    '@typescript-eslint/no-non-null-assertion': [
+      'error',
+      { ignoreArrays: true },
+    ],
     'jsx-a11y/label-has-associated-control': [
       2,
       {

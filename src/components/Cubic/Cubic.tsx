@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
-/* @ts-ignore */
 import * as THREE from 'three';
 import React from 'react';
 import { useGLTF } from '@react-three/drei';
@@ -17,7 +15,7 @@ export const Cubic = ({ ...props }) => {
     console.log(scrollY);
   }, [scrollY]);
 
-  const group = React.useRef(null);
+  const group = React.useRef<THREE.Group>(null!);
   const { nodes, materials } = useGLTF('cubic.glb');
   const edges = React.useMemo(
     /* @ts-ignore */
@@ -26,10 +24,8 @@ export const Cubic = ({ ...props }) => {
   );
 
   useFrame(() => {
-    /* @ts-ignore */
     group.current.rotation.x += 0.01;
     group.current.rotation.x += scrollY.getVelocity() * 0.0002;
-    /* @ts-ignore */
     group.current.rotation.z += 0.01;
     group.current.rotation.z += scrollY.getVelocity() * 0.0002;
 
