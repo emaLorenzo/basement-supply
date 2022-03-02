@@ -4,12 +4,13 @@ import * as THREE from 'three';
 import React from 'react';
 import { useGLTF } from '@react-three/drei';
 import { extend, useFrame } from '@react-three/fiber';
+/* @ts-ignore */
 import { MeshLine, MeshLineMaterial } from 'three.meshline';
 
 extend({ MeshLine, MeshLineMaterial });
 
 export const Cubic = ({ ...props }) => {
-  const group = React.useRef();
+  const group = React.useRef(null);
   const { nodes, materials } = useGLTF('cubic.glb');
   const edges = React.useMemo(
     /* @ts-ignore */
@@ -18,9 +19,10 @@ export const Cubic = ({ ...props }) => {
   );
 
   useFrame(() => {
-    group.current.rotation.x += 0.01;
-    // group.current.rotation.y += 0.01;
-    group.current.rotation.z += 0.01;
+    /* @ts-ignore */
+    group?.current.rotation.x += 0.01;
+    /* @ts-ignore */
+    group?.current.rotation.z += 0.01;
   });
 
   return (
