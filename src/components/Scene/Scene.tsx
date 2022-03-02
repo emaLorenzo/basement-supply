@@ -5,7 +5,7 @@ import { Glitch, EffectComposer } from '@react-three/postprocessing';
 import { Cubic } from '@/components';
 
 export const Scene = () => (
-  <Canvas dpr={[1, 2]} camera={{ zoom: 50, position: [0, 0, 100] }}>
+  <Canvas dpr={[1, 2]} camera={{ zoom: 50, position: [0, 0, 100] }} style={{ pointerEvents: 'none' }}>
     <Suspense fallback={null}>
       {/* <OrthographicCamera makeDefault /> */}
       <Cubic position={[-1.8, -0.5, 1]} rotation={[0.7, 1, 0]} />
