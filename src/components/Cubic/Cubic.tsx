@@ -11,10 +11,6 @@ extend({ MeshLine, MeshLineMaterial });
 export const Cubic = ({ ...props }) => {
   const { scrollY } = useViewportScroll();
 
-  React.useEffect(() => {
-    console.log(scrollY);
-  }, [scrollY]);
-
   const group = React.useRef<THREE.Group>(null!);
   const { nodes, materials } = useGLTF('cubic.glb');
   const edges = React.useMemo(
