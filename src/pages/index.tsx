@@ -35,7 +35,7 @@ const Title = styled(motion.h1)`
   display: inline-block;
   font-size: 14.55vw;
   font-weight: 700;
-  line-height: 0.85;
+  line-height: 1;
   transform: translateX(-5px);
   text-transform: uppercase;
 `;
@@ -44,6 +44,7 @@ const Supply = styled(Title)`
   -webkit-text-stroke: 2px var(--color-text);
   -webkit-text-fill-color: transparent;
   margin-bottom: 0.3em;
+  margin-top: -0.1em;
 
   &::before,
   ::after {

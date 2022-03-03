@@ -26,7 +26,6 @@ export const Scene = () => (
 
 const CubicLeft = () => {
   const { viewport } = useThree()
-  console.log(viewport.width,viewport.width * 0.0001)
   return (
     <Cubic position={[-viewport.width * 0.0075, -viewport.height * 0.0065, 1]} rotation={[0.7, 1, 0]} />
   )
