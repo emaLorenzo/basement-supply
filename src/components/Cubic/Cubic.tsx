@@ -10,7 +10,7 @@ import { MeshLine, MeshLineMaterial } from 'three.meshline';
 
 extend({ MeshLine, MeshLineMaterial });
 
-export const Cubic = ({ position, material, ...props }) => {
+export const Cubic = ({ position, material, ...props }: any) => {
   const { scrollY } = useViewportScroll();
 
   const mesh = React.useRef<THREE.Group>(null!);
@@ -75,9 +75,9 @@ export const Cubic = ({ position, material, ...props }) => {
       dispose={null}
       scale={viewport.width / 1500}
     >
-      {/* @ts-ignore  */}
       <mesh
         ref={mesh}
+        /* @ts-ignore  */
         geometry={nodes.Cube.geometry}
         material={materials.Material}
         rotation={[0, 0, 10]}

@@ -43,7 +43,7 @@ module.exports = {
     'react/prop-types': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx', 'jsx'] }],
     'import/extensions': 'off',
-    // 'react/jsx-props-no-spreading': 'off',
+    'react/jsx-props-no-spreading': 'off',
     'import/prefer-default-export': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'no-console': 'off',
