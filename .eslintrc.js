@@ -43,7 +43,7 @@ module.exports = {
     'react/prop-types': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx', 'jsx'] }],
     'import/extensions': 'off',
-    'react/jsx-props-no-spreading': ['error', { custom: 'ignore' }],
+    // 'react/jsx-props-no-spreading': 'off',
     'import/prefer-default-export': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'no-console': 'off',
@@ -53,10 +53,7 @@ module.exports = {
     '@typescript-eslint/no-use-before-define': ['error'],
     '@typescript-eslint/ban-ts-comment': 'off',
     'react/function-component-definition': 'off',
-    '@typescript-eslint/no-non-null-assertion': [
-      'error',
-      { ignoreArrays: true },
-    ],
+    '@typescript-eslint/no-non-null-assertion': 'off',
     'jsx-a11y/label-has-associated-control': [
       2,
       {
