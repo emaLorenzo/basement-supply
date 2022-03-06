@@ -1,8 +1,8 @@
 import type { NextPage } from 'next';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { Suspense, lazy } from 'react';
-import dynamic from 'next/dynamic';
+import { Canvas } from '@react-three/fiber';
+import { Physics } from '@react-three/p2';
 
 import {
   Head,
@@ -14,16 +14,6 @@ import {
   Scene,
 } from '@/components';
 import { itemsMock, Item } from '@/data/ecommerce';
-
-// const Scene = dynamic(
-//   () => import('../components/Scene/Scene').then((comps) => comps.Scene),
-//   {
-//     ssr: false,
-//     // suspense: true,
-//   }
-// );
-
-// import Cubic from '@/components/Cubic';
 
 const Wrapper = styled.main`
   height: 100%;
@@ -123,7 +113,28 @@ const Home: NextPage<Props> = ({ items }) => {
         <Footer />
       </Wrapper>
       <CartDrawer />
-      <Scene />
+
+      <Canvas
+        dpr={[1, 2]}
+        camera={{ zoom: 50, position: [0, 0, 100] }}
+        style={{ pointerEvents: 'none' }}
+      >
+        <Physics
+          normalIndex={2}
+          gravity={[0, 0]}
+          defaultContactMaterial={{
+            friction: 0,
+            frictionStiffness: 0,
+            stiffness: 0,
+            surfaceVelocity: 0,
+            restitution: 1,
+            frictionRelaxation: 0,
+            relaxation: 0,
+          }}
+        >
+          <Scene />
+        </Physics>
+      </Canvas>
     </>
   );
 };

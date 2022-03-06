@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import React from 'react';
 import { useGLTF } from '@react-three/drei';
 import { extend, useFrame, useThree } from '@react-three/fiber';
-import { useBox, useCompoundBody } from '@react-three/p2';
+import { useCompoundBody } from '@react-three/p2';
 import { vec2 } from 'p2-es';
 import { useViewportScroll } from 'framer-motion';
 /* @ts-ignore */
@@ -13,12 +13,11 @@ extend({ MeshLine, MeshLineMaterial });
 export const Cubic = ({ position, material, ...props }: any) => {
   const { scrollY } = useViewportScroll();
 
-  const mesh = React.useRef<THREE.Group>(null!);
-  const lines = React.useRef<THREE.Group>(null!); /// TODO: type is wrong
+  const mesh = React.useRef<THREE.Mesh>(null!);
+  const lines = React.useRef<THREE.LineSegments>(null!);
 
-  const { nodes, materials } = useGLTF('cubic.glb');
+  const { nodes, materials } = useGLTF('models/cubic.glb') as any;
   const edges = React.useMemo(
-    /* @ts-ignore */
     () => new THREE.EdgesGeometry(nodes.Cube.geometry, 10),
     [nodes]
   );
@@ -40,60 +39,35 @@ export const Cubic = ({ position, material, ...props }: any) => {
     ],
     mass: 0.7,
     position,
-    // angle: Math.PI / 2,
     fixedRotation: false,
     args: [0.3, 0.3],
     material,
-    // angularDamping: 0.9,
-    onCollide: (e) => {
-      // @ts-ignore
-      const normal = e.contact.contactNormal;
-      // vec2.scale(normal, normal, -0.3);
-      api.applyTorque(vec2.create());
-    },
   }));
 
   api.applyForce(vec2.fromValues(7, 7), vec2.create());
 
-  useFrame(({ clock }) => {
+  useFrame(() => {
     mesh.current.rotation.y += 0.01;
     lines.current.rotation.y += 0.01;
 
     mesh.current.rotation.y += scrollY.getVelocity() * 0.0002;
     lines.current.rotation.y += scrollY.getVelocity() * 0.0002;
-    // ref.current.rotation.z += 0.01;
-    // api.position.set(Math.sin(clock.getElapsedTime()) * 3, 0);
-    // api.applyForce([0, 0, 0.01]);
-    // group.current.position.x += 0.005;
   });
 
   return (
     <group
       ref={ref}
-      position={position}
       {...props}
+      position={position}
       dispose={null}
       scale={viewport.width / 1500}
     >
       <mesh
         ref={mesh}
-        /* @ts-ignore  */
         geometry={nodes.Cube.geometry}
         material={materials.Material}
         rotation={[0, 0, 10]}
-      >
-        {/* geometry={nodes.Cube.geometry} material={materials.Material} */}
-        {/* <meshLine attach="geometry" points={nodes.Cube.geometry} />
-        <meshLineMaterial
-          attach="material"
-          // transparent
-          depthTest={false}
-          lineWidth={4}
-          color="white"
-          dashArray={0.05}
-          dashRatio={0.95}
-        /> */}
-      </mesh>
+      />
       <lineSegments
         ref={lines}
         geometry={edges}
@@ -106,4 +80,4 @@ export const Cubic = ({ position, material, ...props }: any) => {
   );
 };
 
-useGLTF.preload('cubic.glb');
+useGLTF.preload('models/cubic.glb');
